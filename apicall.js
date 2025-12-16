@@ -14,7 +14,7 @@ mongoose.connect(mongoURL)
 const paragraphSchema = new mongoose.Schema({
         content: String,
         point: Number,
-        errors: [String],
+        mistakes: [String],
         suggest: String,
         userId: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -90,7 +90,7 @@ app.post('/api/submit-paragraph', async (req, res) => {
                 const paragraph = new Paragraph({
                         content: req.body.content,
                         point: req.body.point,
-                        errors: req.body.errors,
+                        mistakes: req.body.mistakes,
                         suggest: req.body.suggest,
                         userId: req.body.userId
                 });
