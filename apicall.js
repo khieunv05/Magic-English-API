@@ -11,7 +11,7 @@ const mongoURL = process.env.MONGO_URL;
 mongoose.connect(mongoURL)
         .then(() => console.log('Connected to MongoDB'))
         .catch(err => console.error('Could not connect to MongoDB...', err));
-paragraphSchema = new mongoose.Schema({
+const paragraphSchema = new mongoose.Schema({
         content: String,
         point: Number,
         errors: [String],
@@ -22,8 +22,8 @@ paragraphSchema = new mongoose.Schema({
                 index: true
         }
 });
-Paragraph = mongoose.model('Paragraph', paragraphSchema);
-userSchema = new mongoose.Schema({
+const Paragraph = mongoose.model('Paragraph', paragraphSchema);
+const userSchema = new mongoose.Schema({
         username: String,
         password: String,
         name: String,
@@ -35,7 +35,7 @@ userSchema = new mongoose.Schema({
         phone_number: String,
         gender: String,
 })
-User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 app.post('/api/register', async (req, res) => {
         try {
                 const { username, password } = req.body;
